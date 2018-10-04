@@ -16,6 +16,15 @@
     "templates/",
     "dist/"
   ],
+  "keywords": [
+    "vue",
+    "cli",
+    "cmd",
+    "scaffolding",
+    "console",
+    "terminal",
+    "vue.js"
+  ],
   "author": "@ddosdor",
   "license": "MIT",
   "dependencies": {
