@@ -10,8 +10,14 @@
   "bin": {
     "vsh": "./bin/cli.js"
   },
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "README.md",
+    "bin/",
+    "templates/",
+    "dist/"
+  ],
+  "author": "@ddosdor",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
     "ejs": "^2.6.1",
