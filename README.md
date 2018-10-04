@@ -108,7 +108,7 @@ Example:
 `vsh component --help`
 
 #### Create new view
-In order to create a new component, you should enter in the console:
+In order to create a new view, you should enter in the console:
 ```cmd
 vsh view --name MyNewAwesomeVuew
 ```
@@ -142,7 +142,7 @@ Example:
 `vsh view --help`
 
 #### Create new Vuex module
-In order to create a new component, you should enter in the console:
+In order to create a new Vuex module, you should enter in the console:
 ```cmd
 vsh module --name MyNewModule
 ```
@@ -221,7 +221,7 @@ Here youe can change some default settings:
 
 **defaultComponentStyle** - default style when genereting new component, set: `separate` if you prefer the division of responsibility into individual files, or `sfc` if you want *Single File Component*.
 
-## What next?
+## What's next?
 
 I still have some ideas that I would like to implement for this tool. So far, this is a beta version, that's why every feedback is welcome. :)
 
