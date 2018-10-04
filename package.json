@@ -1,0 +1,29 @@
+{
+  "name": "@ddosdor/vue-sh-cli",
+  "version": "0.1.0",
+  "description": "CLI scaffold for Vue.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ./",
+    "start": "tsc -w"
+  },
+  "bin": {
+    "vsh": "./bin/cli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "ejs": "^2.6.1",
+    "figlet": "^1.2.0",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "ora": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^10.5.1",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}

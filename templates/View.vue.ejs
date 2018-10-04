@@ -1,0 +1,18 @@
+<template>
+  <div class="<%= name %>View">
+
+  </div>
+</template>
+
+<script>
+import store from '@/store';
+import { mapGetters } from 'vuex';
+
+export default {
+  name: '<%= name %>',
+  store,
+  computed: {
+    ...mapGetters([]),
+  },
+};
+</script>

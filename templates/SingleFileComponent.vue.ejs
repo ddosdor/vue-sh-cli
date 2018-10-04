@@ -1,0 +1,29 @@
+<% if(typeof functional !== 'undefined') { %>
+<template functional>
+  <div class="<%= name %>">
+
+  </div>
+</template>
+
+<style lang="sass" scoped>
+.<%= name %>
+
+</style>
+<% } else { %>
+<template>
+  <div class="<%= name %>">
+
+  </div>
+</template>
+
+<script type="text/javascript">
+export default {
+  name: '<%= name %>'
+}
+</script>
+
+<style lang="sass" scoped>
+.<%= name %>
+
+</style>
+<% } %>

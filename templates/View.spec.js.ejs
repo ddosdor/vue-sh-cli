@@ -1,0 +1,17 @@
+/* eslint-disable */
+import { shallowMount } from '@vue/test-utils';
+import <%= name %> from '@/views/<%= name %>';
+
+describe('<%= name %> View', () => {
+  let component;
+
+  beforeEach(() => {
+    component = shallowMount(<%= name %>, {
+      stubs: {}
+    })
+  });
+
+  it('Component "<%= name %>" should be Vue instance', () => {
+    expect(component.isVueInstance()).toBe(true);
+  })
+})

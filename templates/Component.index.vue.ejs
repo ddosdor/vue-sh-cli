@@ -1,0 +1,18 @@
+<% if(typeof functional !== 'undefined') { %>
+<template functional>
+  <div class="<%= name %>">
+    Component <%= name %>
+  </div>
+</template>
+
+<style src="./style.sass" lang="sass" scoped></style>
+<% } else { %>
+<template>
+  <div class="<%= name %>">
+    Component <%= name %>
+  </div>
+</template>
+
+<script src="./component.js"></script>
+<style src="./style.sass" lang="sass" scoped></style>
+<% } %>

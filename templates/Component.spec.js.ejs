@@ -1,0 +1,24 @@
+/* eslint-disable */
+import { shallowMount } from '@vue/test-utils';
+<% if(typeof parent !== 'undefined') { %>
+import <%= name %> from '@/components/<%= parent %>/<%= name %>'
+<% } else { %>
+import <%= name %> from '@/components/<%= name %>'
+<% } %>
+jest.mock('@/config', () => ({}));
+jest.mock('@/store', () => ({}));
+
+describe('<%= name %> Component', () => {
+  let component;
+
+  beforeEach(() => {
+    component = shallowMount(<%= name %>, {
+      stubs: {},
+      props: {}
+    })
+  });
+
+  it('Component "<%= name %>" should be Vue instance', () => {
+    expect(component.isVueInstance()).toBe(true);
+  })
+})
