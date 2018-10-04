@@ -67,9 +67,9 @@ As a result, a new component will be created, according to the following structu
 ```
 I prefer components as a separate files, so:
 
-`component.js` - this file is for compononent logic
-`index.vue` - this file is main Vue component file
-`style.sass` - this file is for style (for now only with SASS) 
+- `component.js` - this file is for compononent logic
+- `index.vue` - this file is main Vue component file
+- `style.sass` - this file is for style (for now only with SASS) 
 
 
 The tool also allows you to generate a component as a single file component using the options:
@@ -159,10 +159,10 @@ As a result, a new Vuex module will be created, according to the following struc
               | - mutations.js
 ```
 As with the component, I prefer the division of responsibility into individual files:
-`actions.js` - all actions for new module
-`index.js` - main file for new module (here is initial state and all getters)
-`mutations-type.js` - all available mutations types for new module
-`mutations.js` - all mutations
+- `actions.js` - all actions for new module
+- `index.js` - main file for new module (here is initial state and all getters)
+- `mutations-type.js` - all available mutations types for new module
+- `mutations.js` - all mutations
 
 ##### Available options
 ```cmd
