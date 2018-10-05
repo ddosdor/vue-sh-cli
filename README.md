@@ -74,7 +74,7 @@ I prefer components as a separate files, so:
 
 The tool also allows you to generate a component as a single file component using the options:
 ```cmd
-vsh component --name MyAwesomeComponent --sfc
+vsh component --name MyAwesomeComponent --single
 ```
 As a result, a new component will be created, according to the following structure:
 ```cmd
@@ -219,7 +219,7 @@ Here youe can change some default settings:
 ```
 **alwaysCreateSpecFiles** - here you can decide whether to always create a unit test for it when generating a new component or view. Default is: **false**
 
-**defaultComponentStyle** - default style when genereting new component, set: `separate` if you prefer the division of responsibility into individual files, or `sfc` if you want *Single File Component*.
+**defaultComponentStyle** - default style when genereting new component, set: `separate` if you prefer the division of responsibility into individual files, or `single` if you want *Single File Component*.
 
 ## What's next?
 
