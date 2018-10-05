@@ -25,6 +25,10 @@
     "terminal",
     "vue.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ddosdor/vue-sh-cli.git"
+  },  
   "author": "@ddosdor",
   "license": "MIT",
   "dependencies": {
