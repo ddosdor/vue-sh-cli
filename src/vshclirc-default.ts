@@ -15,7 +15,8 @@ export default {
     commands: {
       component: "c",
       view: "v",
-      module: "m"
+      module: "m",
+      get: "g"
     },
     options: {
       name: "n",
@@ -23,6 +24,7 @@ export default {
       parent: "p",
       functional: "f",
       test: "t",
+      source: "s",
       help: "h"
     }
   }
