@@ -35,9 +35,12 @@
     "chalk": "^2.4.1",
     "ejs": "^2.6.1",
     "figlet": "^1.2.0",
+    "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "ora": "^2.1.0"
+    "ncp": "^2.0.0",
+    "ora": "^2.1.0",
+    "tar": "^4.4.8"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.0",

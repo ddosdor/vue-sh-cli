@@ -73,4 +73,30 @@ export default class Files {
       })
     })    
   }
+
+  public static getFileSize(filePath) {
+    try {
+      return fs.statSync(filePath).size;
+    } catch (err) {
+      return 0;
+    }
+  }
+
+  public static deleteFile(filePath) {
+    fs.unlinkSync(filePath);
+  }
+
+  public static deleteFolder(folderPath) {
+    if (fs.existsSync(folderPath)) {
+      fs.readdirSync(folderPath).forEach((file) => {
+        const curPath = folderPath + "/" + file;
+        if (fs.lstatSync(curPath).isDirectory()) { 
+          Files.deleteFolder(curPath);
+        } else {
+          fs.unlinkSync(curPath);
+        }
+      });
+      fs.rmdirSync(folderPath);
+    }
+  }
 }
