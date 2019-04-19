@@ -39,7 +39,13 @@ export default class GetCommand implements ICommand {
         - parent (optional)    ....... downloading a new element in the folder provided in the option
         
       Example:
-      * ADD EXAMPLE!
+      * Download component 'MyAwesomeComponent' from source 'components' defined in .vshclirs.json
+
+      $: vsh get --source components --name MyAwesomeComponent
+
+      * Download component 'DividerLine' from source 'helpers' defined in .vshclirs.json to 'Helpers' directory
+
+      $: vsh get --source helpers --name DividerLine --parent Helpers     
       \n
     `;
 
