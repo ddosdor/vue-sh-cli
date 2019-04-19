@@ -219,7 +219,64 @@ Here youe can change some default settings:
 ```
 **alwaysCreateSpecFiles** - here you can decide whether to always create a unit test for it when generating a new component or view. Default is: **false**
 
-**defaultComponentStyle** - default style when genereting new component, set: `separate` if you prefer the division of responsibility into individual files, or `single` if you want *Single File Component*.
+**defaultComponentStyle** - default style when genereting new component, set: `separate` if you prefer the division of responsibility into individual files, or `sfc` if you want *Single File Component*.
+
+## Download components, views, modules from git repository (EXPERIMENTAL FEATURE!)
+
+It is possible to download ready-made elements from the repository. In order to do this you need to add sources in the file '.vshclirc.json'.
+
+For example:
+
+```
+  "sources": {
+    "blog": {
+      "remote": "git@github.com:ddosdor/vue-blog-app-example.git",
+      "path": "src/components",
+      "dest": "components"
+    }
+  }
+```  
+Adding a source as a source of components, repository from my project - vue-blog-app-example. To identify the source from which I will be downloading, name it: blog'.
+
+Now I can download the selected component from the repository to my current project.
+
+`vsh get --source blog --name AddNewPost.vue`
+
+##### 'sources'
+
+Each source added to the '.vshclirc.json' file must have parameters:
+
+* `remote` - repository source
+* `path` - path to the source of elements from the repository (for example `path: src/components/common` i source for all components common from te repository)
+* `dest` - destination folder in your project (for example 'components/common')
+
+##### Available options
+
+```
+      Usage: vsh get [options]
+
+      Available options:
+        - source (*required)   ....... repo source defined in settings file
+        - name (*required)     ....... name of element from repo
+        - parent (optional)    ....... downloading a new element in the folder provided in the option
+        
+      Example:
+      * Download component 'MyAwesomeComponent' from source 'components' defined in .vshclirs.json
+
+      $: vsh get --source components --name MyAwesomeComponent
+
+      * Download component 'DividerLine' from source 'helpers' defined in .vshclirs.json to 'Helpers' directory
+
+      $: vsh get --source helpers --name DividerLine --parent Helpers  
+```
+
+##### Requirements for this functionality
+
+* you need to have a git installed
+* the source for the repository must be with the SSH - for example key: `git@github:user/repo.git`
+* you must have access to the repository through your public key
+
+Please consider that this is an experimental functionality and may not work properly. I tested it on my local gitlab server.
 
 ## What's next?
 

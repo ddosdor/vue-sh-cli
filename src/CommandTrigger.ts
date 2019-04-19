@@ -5,6 +5,7 @@ import MenuCommand from './commands/MenuCommand';
 import ComponentCommand from './commands/ComponentCommand';
 import ViewCommand from './commands/ViewCommand';
 import ModuleCommand from './commands/ModuleCommand';
+import GetCommand from './commands/GetCommand';
 import InitCommand from './commands/InitCommand';
 
 export default class CommandTrigger {
@@ -20,6 +21,7 @@ export default class CommandTrigger {
     component: new ComponentCommand(),
     view: new ViewCommand(),
     module: new ModuleCommand(),
+    get: new GetCommand(),
     init: new InitCommand(),
   }
 

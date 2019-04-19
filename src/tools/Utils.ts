@@ -1,3 +1,4 @@
+import * as util from 'util';
 import Terminal from './Terminal';
 
 export default class Utils {
