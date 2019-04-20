@@ -278,6 +278,8 @@ Each source added to the '.vshclirc.json' file must have parameters:
 
 Please consider that this is an experimental functionality and may not work properly. I tested it on my local gitlab server.
 
+Edit: This functionality uses the option: `git archive` and unfortunately Github doesn't support it. -> https://github.com/isaacs/github/issues/554
+
 ## What's next?
 
 I still have some ideas that I would like to implement for this tool. So far, this is a beta version, that's why every feedback is welcome. :)
