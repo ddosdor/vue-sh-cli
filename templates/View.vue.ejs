@@ -1,18 +1,32 @@
 <template>
   <div class="<%= name %>View">
-
+    <%= name %>View
   </div>
 </template>
 
-<script>
-import store from '@/store';
-import { mapGetters } from 'vuex';
+<% if(version == 3) { -%>
+<% if(lang === 'ts') { %><script lang="ts"><% } else{ %><script><% } %>
+import { defineComponent } from 'vue';
 
+export default defineComponent({
+  name: '<%= name %>View',
+  setup() {
+    // component setup
+  },
+});
+</script>
+<% } else { -%>
+<% if(lang === 'ts') { %><script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: '<%= name %>',
+});
+</script>
+<% } else{ %><script>
 export default {
   name: '<%= name %>',
-  store,
-  computed: {
-    ...mapGetters([]),
-  },
 };
 </script>
+<% } -%>
+<% } -%>

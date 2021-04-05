@@ -1,29 +1,49 @@
-<% if(typeof functional !== 'undefined') { %>
+<% if(typeof functional !== 'undefined') { -%>
 <template functional>
   <div class="<%= name %>">
-
+    Component <%= name %>
   </div>
 </template>
 
 <style lang="sass" scoped>
 .<%= name %>
-
+  // component style
 </style>
-<% } else { %>
+<% } else { -%>
 <template>
   <div class="<%= name %>">
-
+    Component <%= name %>
   </div>
 </template>
+<% if(version == 3) { %>
+<% if(lang === 'ts') { %><script lang="ts"><% } else{ %><script><% } %>
+import { defineComponent } from 'vue';
 
-<script type="text/javascript">
-export default {
-  name: '<%= name %>'
-}
+export default defineComponent({
+  name: '<%= name %>',
+  setup() {
+    // component setup
+  },
+});
 </script>
+<% } else { %>
+<% if(lang === 'ts') { %><script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: '<%= name %>',
+});
+</script>
+<% } else{ %><script>
+  export default {
+  name: '<%= name %>',
+};
+</script>
+<% } -%>
+<% } -%>
 
 <style lang="sass" scoped>
 .<%= name %>
-
+  // component style
 </style>
 <% } %>

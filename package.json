@@ -1,6 +1,6 @@
 {
   "name": "@ddosdor/vue-sh-cli",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "CLI scaffold for Vue.js",
   "main": "dist/index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "figlet": "^1.2.0",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.4",
     "ncp": "^2.0.0",
     "ora": "^2.1.0",
     "tar": "^4.4.8"

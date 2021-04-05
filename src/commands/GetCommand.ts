@@ -15,7 +15,7 @@ interface IGetOptions {
 }
 
 export default class GetCommand implements ICommand {
-  availableOptions: string[] | any = ['source', 'name', 'parent', 'help'];
+  availableOptions: string[] | any = ['source', 'name', 'parent', 'help', 'lang', 'version'];
   rootSrcDirectory: string = 'src';
   sources: object = {};
 

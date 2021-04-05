@@ -12,7 +12,6 @@ export default class MenuCommand implements ICommand {
       component ........................ create new component from template
       view      ........................ create new view from template
       module    ........................ create new Vuex module from template
-      filter    ........................ create new filter from template
   `
 
   private printMenu(): void {

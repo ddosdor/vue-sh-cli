@@ -9,7 +9,8 @@ import Terminal from './../tools/Terminal';
 
 interface IModuleOptions {
   name: string,
-  help: string
+  help: string,
+  lang: string,
 }
 
 /**
@@ -20,7 +21,7 @@ interface IModuleOptions {
  * @implements {ICommand}
  */
 export default class ModuleCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'help'];
+  availableOptions: string[] | any = ['name', 'help', 'lang', 'version'];
   vuexDirectory: string = 'vuex';
   mainDirectory: string = 'modules';
   rootSrcDirectory: string = 'src';
@@ -40,6 +41,7 @@ export default class ModuleCommand implements ICommand {
 
     Available options:
       - name (*required)      ....... name of the new module
+      - lang (optional)       ....... language for vue ('ts' for typescript, default is javascript)
 
     Example:
       * Create Vuex module with 'MyModule' name
@@ -68,10 +70,10 @@ export default class ModuleCommand implements ICommand {
       const moduleMutationsFile = await ejs.renderFile(path.resolve(__dirname + '/../../templates/Module.mutations.js.ejs'), options);
       const moduleMutationsTypessFile = await ejs.renderFile(path.resolve(__dirname + '/../../templates/Module.mutations-types.js.ejs'), options);
 
-      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/index.js`, moduleMainFile);
-      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/actions.js`, moduleActionsFile);
-      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/mutations.js`, moduleMutationsFile);
-      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/mutations-types.js`, moduleMutationsTypessFile);
+      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/index.${options.lang}`, moduleMainFile);
+      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/actions.${options.lang}`, moduleActionsFile);
+      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/mutations.${options.lang}`, moduleMutationsFile);
+      fs.writeFileSync(`./${this.rootSrcDirectory}/${this.vuexDirectory}/${this.mainDirectory}/${moduleName}/mutations-types.${options.lang}`, moduleMutationsTypessFile);
 
       Terminal.showMessage(`Success! Vuex '${moduleName}' module has been created!\n`);
     } catch (err) {

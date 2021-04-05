@@ -13,7 +13,8 @@ interface IComponentOptions {
   parent: string,
   functional: string,
   test: string,
-  help: string
+  help: string,
+  lang: string,
 }
 
 /**
@@ -24,7 +25,7 @@ interface IComponentOptions {
  * @implements {ICommand}
  */
 export default class ComponentCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'single', 'parent', 'functional', 'test', 'help'];
+  availableOptions: string[] | any = ['name', 'single', 'parent', 'functional', 'test', 'help', 'version', 'lang'];
   testDirectory: string = '__tests__';
   mainDirectory: string = 'components';
   rootSrcDirectory: string = 'src';
@@ -52,6 +53,8 @@ export default class ComponentCommand implements ICommand {
         - functional (optional) ....... new component is created as a functional component
         - parent (optional)     ....... creates a new component in the folder provided in the option
         - test (optional)       ....... generate unit test for component
+        - lang (optional)       ....... language for vue ('ts' for typescript, default is javascript)
+        - version (optional)    ....... vue version (possible value is 3 or 2, default is 2)        
 
       Example:
         * Create component with 'MyAwesomeComponent' name as a separate files (*.sass, *.js, *.vue)
@@ -109,7 +112,7 @@ export default class ComponentCommand implements ICommand {
       const componentTemplateFile = await ejs.renderFile(path.resolve(__dirname + '/../../templates/Component.index.vue.ejs'), options);
       const componentStyletFile = await ejs.renderFile(path.resolve(__dirname + '/../../templates/Component.style.sass.ejs'), options);
 
-      options.functional || fs.writeFileSync(`./${this.rootSrcDirectory}/${this.mainDirectory}${parentDirectory}/${componentName}/component.js`, componentScriptFile);
+      options.functional || fs.writeFileSync(`./${this.rootSrcDirectory}/${this.mainDirectory}${parentDirectory}/${componentName}/component.${options.lang}`, componentScriptFile);
       fs.writeFileSync(`./${this.rootSrcDirectory}/${this.mainDirectory}${parentDirectory}/${componentName}/index.vue`, componentTemplateFile);
       fs.writeFileSync(`./${this.rootSrcDirectory}/${this.mainDirectory}${parentDirectory}/${componentName}/style.sass`, componentStyletFile);
 
@@ -134,7 +137,7 @@ export default class ComponentCommand implements ICommand {
       await Files.createDirectory(`./${this.testDirectory}/${this.mainDirectory}${parentDirectory}`);
 
       const componentTestFile = await ejs.renderFile(path.resolve(__dirname + '/../../templates/Component.spec.js.ejs'), options);
-      fs.writeFileSync(`./${this.testDirectory}/${this.mainDirectory}${parentDirectory}/${componentName}.spec.js`, componentTestFile);
+      fs.writeFileSync(`./${this.testDirectory}/${this.mainDirectory}${parentDirectory}/${componentName}.spec.${options.lang}`, componentTestFile);
 
       Terminal.showMessage(`Success! Unit tests for component '${componentName}' has been created!\n`);
     } catch (err) {
