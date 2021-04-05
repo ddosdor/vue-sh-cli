@@ -22,7 +22,7 @@ interface IViewOptions {
  * @implements {ICommand}
  */
 export default class ViewCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'parent', 'test', 'help'];
+  availableOptions: string[] | any = ['name', 'parent', 'test', 'help', 'version'];
   testDirectory: string = '__tests__';
   mainDirectory: string = 'views';
   rootSrcDirectory: string = 'src';

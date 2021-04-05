@@ -24,7 +24,7 @@ interface IComponentOptions {
  * @implements {ICommand}
  */
 export default class ComponentCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'single', 'parent', 'functional', 'test', 'help'];
+  availableOptions: string[] | any = ['name', 'single', 'parent', 'functional', 'test', 'help', 'version'];
   testDirectory: string = '__tests__';
   mainDirectory: string = 'components';
   rootSrcDirectory: string = 'src';

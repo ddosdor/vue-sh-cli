@@ -1,4 +1,4 @@
-<% if(typeof functional !== 'undefined') { %>
+<% if(typeof functional !== 'undefined') { -%>
 <template functional>
   <div class="<%= name %>">
     Component <%= name %>
@@ -6,7 +6,7 @@
 </template>
 
 <style src="./style.sass" lang="sass" scoped></style>
-<% } else { %>
+<% } else { -%>
 <template>
   <div class="<%= name %>">
     Component <%= name %>
@@ -15,4 +15,4 @@
 
 <script src="./component.js"></script>
 <style src="./style.sass" lang="sass" scoped></style>
-<% } %>
+<% } -%>

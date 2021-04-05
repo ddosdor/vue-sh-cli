@@ -4,15 +4,21 @@
   </div>
 </template>
 
+<% if(version == 3) { -%>
 <script>
-import store from '@/store';
-import { mapGetters } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
-  name: '<%= name %>',
-  store,
-  computed: {
-    ...mapGetters([]),
+export default defineComponent({
+  name: '<%= name %>View',
+  setup() {
+    // component setup
   },
+});
+</script>
+<% } else { -%>
+<script>
+export default {
+  name: '<%= name %>View',
 };
 </script>
+<% } -%>

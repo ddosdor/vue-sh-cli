@@ -10,9 +10,11 @@ import InitCommand from './commands/InitCommand';
 
 export default class CommandTrigger {
   static aliases: any = [];
+  static version: number;
 
   static async readConfig(): Promise<void> {
     const __config__ = await Config;
+    this.version = __config__.settings.version || 2;
     this.aliases = __config__.aliases || this.aliases;
   }
 
@@ -34,13 +36,21 @@ export default class CommandTrigger {
     return _options_;
   }
 
+  public static setVueVersion(options) {
+    return {
+      version: this.version,
+      ...options
+    };
+  }
+
   public static async run(command: string = '', options: object = {}): Promise<void> {
     await this.readConfig();
 
     try {
       const _command_ = Utils.getObjectKeyByValue(this.aliases.commands, command) || command;
+      const _options_ = this.getPassedOptions(options);
       // let the magic begin
-      this.possibleCommands[_command_].run(this.getPassedOptions(options))
+      this.possibleCommands[_command_].run(this.setVueVersion(_options_))
     } catch(err) {
       Terminal.showError(`\n There is no such command or alias as: "${command}"`);
     }
