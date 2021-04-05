@@ -8,6 +8,23 @@ export default defineComponent({
   },
 });
 <% } else { -%>
+<% if(lang === 'ts') { -%>
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: '<%= name %>',
+
+  props: [],
+
+  data() {
+    return {};
+  },
+
+  computed: {},
+
+  methods: {},
+});
+<% } else { -%>
 export default {
   name: '<%= name %>',
 
@@ -20,5 +37,6 @@ export default {
   computed: {},
 
   methods: {},
-};
+};  
+<% } -%>
 <% } -%>

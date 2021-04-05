@@ -15,7 +15,7 @@ interface IViewOptions {
 }
 
 export default class InitCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'parent', 'test', 'help'];
+  availableOptions: string[] | any = ['name', 'parent', 'test', 'help', 'version', 'lang'];
 
   private showHelpMessage(): void {
     const helpMessage = `\n

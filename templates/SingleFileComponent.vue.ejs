@@ -16,7 +16,7 @@
   </div>
 </template>
 <% if(version == 3) { %>
-<script>
+<% if(lang === 'ts') { %><script lang="ts"><% } else{ %><script><% } %>
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -26,12 +26,20 @@ export default defineComponent({
   },
 });
 </script>
-<% } else { -%>
-<script>
-export default {
+<% } else { %>
+<% if(lang === 'ts') { %><script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: '<%= name %>',
-}
+});
 </script>
+<% } else{ %><script>
+  export default {
+  name: '<%= name %>',
+};
+</script>
+<% } -%>
 <% } -%>
 
 <style lang="sass" scoped>

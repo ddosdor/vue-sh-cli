@@ -22,7 +22,7 @@ interface IViewOptions {
  * @implements {ICommand}
  */
 export default class ViewCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'parent', 'test', 'help', 'version'];
+  availableOptions: string[] | any = ['name', 'parent', 'test', 'help', 'version', 'lang'];
   testDirectory: string = '__tests__';
   mainDirectory: string = 'views';
   rootSrcDirectory: string = 'src';
@@ -45,7 +45,9 @@ export default class ViewCommand implements ICommand {
       Available options:
         - name (*required)      ....... name of the new component
         - parent (optional)     ....... creates a new component in the folder provided in the option
-        - test (optional)       ....... create unit test for view  
+        - test (optional)       ....... create unit test for view
+        - lang (optional)       ....... language for vue ('ts' for typescript, default is javascript)
+        - version (optional)    ....... vue version (possible value is 3 or 2, default is 2)  
 
       Example:
         * Create view with 'MyNewView' name in 'src/views/MyNewView' directory:
