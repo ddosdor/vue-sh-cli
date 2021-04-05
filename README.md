@@ -11,7 +11,7 @@
 
 This is my awesome CLI tools for scaffolding apps that was made with Vue.js.
 
-***[New] From now its support Vue 3.x. and Typescript***
+***[New] From now its support Vue 3.x. and Typescript (all changes in CHANGLELOG.md)***
 
 ## Why I made this?
 
