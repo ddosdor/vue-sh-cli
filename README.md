@@ -11,6 +11,8 @@
 
 This is my awesome CLI tools for scaffolding apps that was made with Vue.js.
 
+***[New] From now its support Vue 3.x. and Typescript***
+
 ## Why I made this?
 
 Because I can ;) But for real - I love Vue.js and all my last apps was made with this awesome framework. That's why I created a tool that makes my job easier.
@@ -21,12 +23,6 @@ It's simple:
 
 ```
 npm install -g @ddosdor/vue-sh-cli
-```
-
-or
-
-```
-yarn add global @ddosdor/vue-sh-cli
 ```
 
 ## How to use this?
@@ -47,7 +43,6 @@ results:
       component ........................ create new component from template
       view      ........................ create new view from template
       module    ........................ create new Vuex module from template
-      filter    ........................ create new filter from template
 ```
 
 #### Create new component
@@ -91,6 +86,8 @@ Available options:
   - functional (optional) ....... new component is created as a functional component
   - parent (optional)     ....... creates a new component in the folder provided in the option
   - test (optional)       ....... generate unit test for component
+  - lang (optional)       ....... language for vue ('ts' for typescript, default is javascript)
+  - version (optional)    ....... vue version (possible value is 3 or 2, default is 2)     
 
 Example:
   * Create component with 'MyAwesomeComponent' name as a separate files (*.sass, *.js, *.vue)
@@ -127,6 +124,8 @@ Available options:
   - name (*required)      ....... name of the new component
   - parent (optional)     ....... creates a new component in the folder provided in the option
   - test (optional)       ....... create unit test for view
+  - lang (optional)       ....... language for vue ('ts' for typescript, default is javascript)
+  - version (optional)    ....... vue version (possible value is 3 or 2, default is 2)
 
 Example:
   * Create view with 'MyNewView' name in 'src/views/MyNewView' directory:
@@ -168,6 +167,7 @@ As with the component, I prefer the division of responsibility into individual f
 ```cmd
 Available options:
   - name (*required)      ....... name of the new module
+  - lang (optional)       ....... language for vue ('ts' for typescript, default is javascript)
 
 Example:
   * Create Vuex module with 'MyModule' name
@@ -204,12 +204,18 @@ Here you can indicate in which folders new items are to be created. For example,
 ##### Default settings
 ```json
   "settings": {
+    "version": 2,
+    "lang": "js",
     "rootSrcDirectory": "src",
     "alwaysCreateSpecFiles": true,
     "defaultComponentStyle": "separate"
   },
 ```
 Here youe can change some default settings:
+
+**version** - Vue version. Default is Vue 2.x. If this option is set to `3` then all components and views will be generated for Vue 3.x
+
+**lang** - language for all files in project. Default value is `js`. If this option i set to `ts` ts then all components, views and vuex modules will have `.ts` extension and will be generated with typescript support.
 
 **rootSrcDirectory** - source directory in your project. For example, if main root folder is also your source folder (like in Nuxt.js apps), you can indicate this like: 
 ```json
@@ -285,10 +291,6 @@ Edit: This functionality uses the option: `git archive` and unfortunately Github
 I still have some ideas that I would like to implement for this tool. So far, this is a beta version, that's why every feedback is welcome. :)
 
 ---
-#### Our blogs
-
-See [Meanstack.eu - voil](http://meanstack.eu/)
-See [Meandjs - ddosdor](http://meandjs.com/)
 
 License
 ----
