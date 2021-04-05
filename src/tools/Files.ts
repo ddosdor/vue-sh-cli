@@ -66,12 +66,8 @@ export default class Files {
    * @memberof Files
    */
   public static createDirectory(fullPathWithDirectoryName: string = ''): Promise<any> {
-    return new Promise((resolve, reject) => {
-      mkdirp(fullPathWithDirectoryName, (err) => {
-        if (err) reject(err);
-        resolve();
-      })
-    })    
+    return mkdirp(fullPathWithDirectoryName)
+      .catch(err => console.log(err)); 
   }
 
   public static getFileSize(filePath) {
