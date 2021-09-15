@@ -26,6 +26,10 @@ export default defineComponent({
   },
 });
 </script>
+<% } else if(version == 3.2) { %>
+<% if(lang === 'ts') { %><script setup lang="ts"><% } else{ %><script setup ><% } %>
+  // Component code here
+</script>
 <% } else { %>
 <% if(lang === 'ts') { %><script lang="ts">
 import Vue from 'vue';

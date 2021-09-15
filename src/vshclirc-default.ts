@@ -7,6 +7,8 @@ export default {
     unitTests: "__tests__"
   },
   settings: {
+    version: 2,
+    lang: "js",
     rootSrcDirectory: "src",
     alwaysCreateSpecFiles: false,
     defaultComponentStyle: "separate"
