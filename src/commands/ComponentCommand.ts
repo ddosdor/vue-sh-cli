@@ -9,7 +9,7 @@ import Terminal from './../tools/Terminal';
 
 interface IComponentOptions {
   name: string,
-  single: string,
+  separate: string,
   parent: string,
   functional: string,
   test: string,
@@ -25,12 +25,12 @@ interface IComponentOptions {
  * @implements {ICommand}
  */
 export default class ComponentCommand implements ICommand {
-  availableOptions: string[] | any = ['name', 'single', 'parent', 'functional', 'test', 'help', 'version', 'lang'];
+  availableOptions: string[] | any = ['name', 'separate', 'parent', 'functional', 'test', 'help', 'version', 'lang'];
   testDirectory: string = '__tests__';
   mainDirectory: string = 'components';
   rootSrcDirectory: string = 'src';
   alwaysCreateSpecFiles: boolean = false;
-  defaultComponentStyle: string = 'separate';
+  defaultComponentStyle: string = 'sfc';
 
   private async readConfig(): Promise<void> {
     const __config__ = await Config;
@@ -49,7 +49,7 @@ export default class ComponentCommand implements ICommand {
 
       Available options:
         - name (*required)      ....... name of the new component
-        - single (optional)     ....... create component as a single *.vue file
+        - separate (optional)   ....... create component as a separate files (*.sass, *.js, *.vue)
         - functional (optional) ....... new component is created as a functional component
         - parent (optional)     ....... creates a new component in the folder provided in the option
         - test (optional)       ....... generate unit test for component
@@ -57,16 +57,16 @@ export default class ComponentCommand implements ICommand {
         - version (optional)    ....... vue version (possible value is 3 or 2, default is 2)        
 
       Example:
-        * Create component with 'MyAwesomeComponent' name as a separate files (*.sass, *.js, *.vue)
+        * Create component with 'MyAwesomeComponent' name as a SFC component files 
         in 'src/components/MyAwesomeComponent' directory:
 
-        $: vsh component --name MyAwesomeComponent --functional
+        $: vsh component --name MyAwesomeComponent
     
 
-        * Create component with 'MyAwesomeFunctionalSingleComponent' as a single file component
+        * Create component with 'MyAwesomeFunctionalSingleComponent' as a separate files (*.sass, *.js, *.vue)
         in 'src/components/CommonComponents/' directory:
 
-        $: vsh component --name MyAwesomeFunctionalSingleComponent --functional --single --parent CommonComponents
+        $: vsh component --name MyAwesomeFunctionalSingleComponent --separate --parent CommonComponents
         \n
     `;
 
@@ -163,7 +163,7 @@ export default class ComponentCommand implements ICommand {
     if (!Files.checkIfThisIsProjectMainDirecotry(this.rootSrcDirectory)) return;
     if (!Utils.validatePassedOptions(options, this.availableOptions)) return;
 
-    (this.defaultComponentStyle === 'sfc' || options.single)? this.createSingleFileComponent(options) : this.createSeparateFilesComponent(options);
+    (this.defaultComponentStyle === 'separate' || options.separate)? this.createSeparateFilesComponent(options) : this.createSingleFileComponent(options);
     (this.alwaysCreateSpecFiles || options.test) && this.createUnitTest(options);
   }
 }

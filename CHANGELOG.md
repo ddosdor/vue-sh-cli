@@ -1,5 +1,13 @@
 ## Changelog
 ---
+### 0.4.0
+_2021-09-15_
+
+#### Features
+- add support for `<script setup>` syntax
+
+#### Others
+- SFC is now default
 
 ### 0.3.0
 _2021-04-05_
