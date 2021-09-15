@@ -5,7 +5,6 @@
       "outDir" : "dist",
       "sourceMap": true,
       "removeComments": true,
-      "types": ["node"]
   },
   "include": [
       "./src/**/*"
