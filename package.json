@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@types/minimist": "^1.2.0",
-    "@types/node": "^10.5.1",
+    "@types/node": "^16.9.1",
     "ts-node": "^7.0.0",
     "typescript": "^2.9.2"
   }
