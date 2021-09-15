@@ -11,6 +11,7 @@
 
 This is my awesome CLI tools for scaffolding apps that was made with Vue.js.
 
+***[New] From now its support new `<setup sript>` syntax (all changes in CHANGLELOG.md)***
 ***[New] From now its support Vue 3.x. and Typescript (all changes in CHANGLELOG.md)***
 
 ## Why I made this?
@@ -55,34 +56,32 @@ As a result, a new component will be created, according to the following structu
 ```cmd
 - src
   | - components
-      | - MyNewAwesomeComponent
-          | - component.js
-          | - index.vue
-          | - style.sass
+      | - MyNewAwesomeComponent.vue
 ```
-I prefer components as a separate files, so:
 
-- `component.js` - this file is for compononent logic
-- `index.vue` - this file is main Vue component file
-- `style.sass` - this file is for style (for now only with SASS) 
-
-
-The tool also allows you to generate a component as a single file component using the options:
+The tool also allows you to generate a component as a separate files using the options:
 ```cmd
-vsh component --name MyAwesomeComponent --single
+vsh component --name MyAwesomeComponent --separate
 ```
 As a result, a new component will be created, according to the following structure:
 ```cmd
 - src
   | - components
-      | - MyNewAwesomeComponent.vue
+      | - component.vue
+      | - index.js or index.ts
+      | - style.sass
 ```
+
+Where:
+- `component.js` - this file is for compononent logic
+- `index.vue` - this file is main Vue component file
+- `style.sass` - this file is for style (for now only with SASS) 
 ##### Available options
 
 ```cmd
 Available options:
   - name (*required)      ....... name of the new component
-  - single (optional)     ....... create component as a single *.vue file
+  - separate (optional)   ....... create component as a single *.vue file
   - functional (optional) ....... new component is created as a functional component
   - parent (optional)     ....... creates a new component in the folder provided in the option
   - test (optional)       ....... generate unit test for component
@@ -90,16 +89,16 @@ Available options:
   - version (optional)    ....... vue version (possible value is 3 or 2, default is 2)     
 
 Example:
-  * Create component with 'MyAwesomeComponent' name as a separate files (*.sass, *.js, *.vue)
+  * Create component with 'MyAwesomeComponent' name
   in 'src/components/MyAwesomeComponent' directory:
 
   $: vsh component --name MyAwesomeComponent --functional
 
 
-  * Create component with 'MyAwesomeFunctionalSingleComponent' as a single file component
+  * Create component with 'MyAwesomeFunctionalSingleComponent' as a separate files (*.sass, *.js, *.vue)
   in 'src/components/CommonComponents/' directory:
 
-  $: vsh component --name MyAwesomeFunctionalSingleComponent --functional --single --parent CommonComponents
+  $: vsh component --name MyAwesomeFunctionalSingleComponent --functional --separate --parent CommonComponents
 ```
 ###### Help
 `vsh component --help`
@@ -213,7 +212,11 @@ Here you can indicate in which folders new items are to be created. For example,
 ```
 Here youe can change some default settings:
 
-**version** - Vue version. Default is Vue 2.x. If this option is set to `3` then all components and views will be generated for Vue 3.x
+**version** - Vue version. 
+Possible values:
+- `2` - all components and views will be generated for Vue 2.x
+- `3` - all components and views will be generated for < Vue 3.2
+- `3.2` - all component and views will be generated for > Vue 3.2 with new `<script setup>` syntax
 
 **lang** - language for all files in project. Default value is `js`. If this option i set to `ts` ts then all components, views and vuex modules will have `.ts` extension and will be generated with typescript support.
 
