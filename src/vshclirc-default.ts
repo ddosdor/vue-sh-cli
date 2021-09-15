@@ -11,7 +11,7 @@ export default {
     lang: "js",
     rootSrcDirectory: "src",
     alwaysCreateSpecFiles: false,
-    defaultComponentStyle: "separate"
+    defaultComponentStyle: "sfc"
   },
   aliases: {
     commands: {
